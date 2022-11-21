@@ -21,4 +21,36 @@ entries:
     urls:
     - https://github.com/amitjhrecon/helmlab/releases/download/helm-chart-test-2.1.1/helm-chart-test-2.1.1.tgz
     version: 2.1.1
+  nginx:
+  - annotations:
+      category: Infrastructure
+    apiVersion: v2
+    appVersion: 1.21.6
+    created: "2022-11-21T08:04:10.980741273Z"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - bitnami-common
+      version: 1.x.x
+    description: NGINX Open Source is a web server that can be also used as a reverse proxy, load balancer, and HTTP cache. Recommended for high-demanding sites due to its ability to provide faster content.
+    digest: ce6b1ebfff2963150c72392d60a6ce16371021436c3a82ddbb97d4d0b3d627af
+    home: https://github.com/bitnami/charts/tree/master/bitnami/nginx
+    icon: https://bitnami.com/assets/stacks/nginx/img/nginx-stack-220x234.png
+    keywords:
+    - nginx
+    - http
+    - web
+    - www
+    - reverse proxy
+    maintainers:
+    - email: containers@bitnami.com
+      name: Bitnami
+    name: nginx
+    sources:
+    - https://github.com/bitnami/bitnami-docker-nginx
+    - https://www.nginx.org
+    urls:
+    - https://github.com/amitjhrecon/helmlab/releases/download/nginx-9.7.6/nginx-9.7.6.tgz
+    version: 9.7.6
 generated: "2022-11-18T13:08:04.370805032Z"
