@@ -1,5 +1,15 @@
 apiVersion: v1
 entries:
+  fed-kong-helm:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2022-12-14T10:25:59.480939751Z"
+    description: A Helm chart for Kubernetes
+    digest: 61286462fd295d1dd7070410b9c6df9267c1337674504354960a273079eb00ed
+    name: fed-kong-helm
+    urls:
+    - https://github.com/amitjhrecon/helmlab/releases/download/fed-kong-helm-0.1.0/fed-kong-helm-0.1.0.tgz
+    version: 0.1.0
   helm-chart-test:
   - apiVersion: v2
     appVersion: 1.16.0
