@@ -1,0 +1,22 @@
+{{ $KC := .Values.kongenv  }}
+{{- if .Values.mtls.enabled }}
+{{- if .Values.consumers }}
+{{- range .Values.consumers.clients }}
+---
+apiVersion: configuration.konghq.com/v1
+kind: KongConsumer
+metadata:
+  name: consumer-{{ . | replace "." "-" }}
+  annotations:
+{{- if eq  $KC   "its-feds" }}
+    kubernetes.io/ingress.class: kong-feds
+{{- else if eq $KC "itp-fedp" }}
+    kubernetes.io/ingress.class: kong-fedp
+{{- else  }}
+    kubernetes.io/ingress.class: kong-devext
+{{- end }}
+custom_id: "{{ .  }}"
+username: "{{ .  }}"
+{{- end }}
+{{- end }}
+{{- end }}

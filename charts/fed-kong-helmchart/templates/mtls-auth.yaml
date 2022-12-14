@@ -1,0 +1,38 @@
+{{- if .Values.mtls.enabled -}}
+---
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+{{- if eq .Values.mtls.authchain  "qa" }}   # qa = QA G2-G3 chain
+  name: mtls-auth-qa-chain
+config:
+  ca_certificates:
+  - da7e0f8a-2da3-4518-8a29-037426aa29da  # sjc-beta2-pan-root-ca
+  - 0a2c32f8-4ffb-4315-bc7a-8b62e485ce35  # beta2-pan-services-intermediate-ca2
+  - 305f0d36-0864-4b27-b46e-4db5c5b20348  # beta2-pan-sjc-services-issuing-ca2-beta2-g3
+  #- 791f2788-8d42-432d-9e47-be9aadfc3aa9  # beta2-pan-sjc-services-issuing-ca2-beta2-g2 #expired
+  - abd68f74-2580-49a1-ab11-c657bd8152f2  # beta2-pan-dal-services-issuing-ca2-beta2-g3
+{{- else if eq .Values.mtls.authchain  "prod" }}   # prod = PROD G2-G3 Chain
+  name: mtls-auth-prod-chain  
+config:   
+  ca_certificates:
+  - a96a9a8b-f65f-4aa4-894f-588e3be73d0b   # pan-root-ca
+  - 6f936559-0f2a-469a-92b8-e9bded49fa70   # pan-sjc-services-intermediate-ca
+  - c58079aa-368f-4339-ab81-51abbceabddb   # pan-services-issuing-sjc-ca2b-g3
+  - 4fa215b2-3014-4794-9c8d-24ef99eb9572   # pan-services-issuing-sjc-ca2-g3
+  - eb2a1c60-3eeb-4282-a80c-6b57e3894500   # pan-services-issuing-dal-ca2b-g3
+  - 6c358a4c-bbd0-4db7-ba20-2bca21f98141   # pan-services-issuing-dal-ca2-g3
+  # - 186c786e-426e-11ec-a682-42010a8e4483   # pan-services-issuing-sjc-ca2-g2 # expired 
+{{- end }}
+{{- if eq .Values.kongenv "itp" }}
+  anonymous: 9c2f7b29-5341-4f6b-96aa-4011a1afa2b8  ##itp anonymous
+{{- else if eq .Values.kongenv "its" }}
+  anonymous: d6ef448b-efda-49de-8bd6-b36874d75de6  ##its anonymous
+{{- else if eq .Values.kongenv "itd" }}
+  anonymous: 56e6d644-79d6-4a9a-a5c1-27057923c0f2  ##itd anonymous 
+{{- end }}
+  skip_consumer_lookup: false
+  revocation_check_mode: SKIP
+plugin: mtls-auth
+
+{{- end }}

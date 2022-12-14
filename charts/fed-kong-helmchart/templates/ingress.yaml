@@ -1,0 +1,59 @@
+---
+{{ $KC := .Values.kongenv  }}
+{{ $APPNAME := .Values.appname }}
+{{ $MTLS := .Values.mtls.enabled  }}
+{{- if .Values.ingress.enabled -}}
+{{- $fullName := include "chart.name" . -}}
+{{- $ingressPath := .Values.ingress.path -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "chart.name" . }}-ingress
+  labels:
+    app.kubernetes.io/name: {{ include "chart.name" . }}
+    helm.sh/chart: {{ include "chart.chart" . }}
+    app.kubernetes.io/instance: {{ $APPNAME }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+  annotations:
+    konghq.com/strip-path: "true"
+{{- if and (eq $KC "itp-fedp" ) (eq $MTLS true ) }}
+    konghq.com/plugins: mtls-auth-prod-chain,mtls-acl-{{ $APPNAME }}
+    konghq.com/snis: fedpx.api.paloaltonetworks.us
+{{- end }}
+spec:
+{{- if eq  $KC   "itp" }}
+  ingressClassName: kong-prod
+{{- else if eq $KC "its" }}
+  ingressClassName: kong-dev
+{{- else if eq $KC "its-feds" }}
+  ingressClassName: kong-feds
+{{- else if eq $KC "itp-fedp" }}
+  ingressClassName: kong-fedp
+{{- else  }}
+  ingressClassName: kong-devext
+{{- end }}
+  rules:
+  {{- range .Values.ingress.hosts }}
+    - host: {{ . | quote }}
+      http:
+        paths:
+          - path: {{ $ingressPath }}
+            pathType: Prefix
+            backend:
+              service:
+                name: fed-{{ $APPNAME  }}
+                port:
+                  number: 80
+  {{- else }}
+    - http:
+        paths:
+          - path: {{ $ingressPath }}
+            pathType: Prefix
+            backend:
+              service:
+                name: fed-{{ $APPNAME }}
+                port:
+                  number: 80
+{{- end }}
+{{- end }}
+

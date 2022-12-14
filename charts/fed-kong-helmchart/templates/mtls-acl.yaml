@@ -1,0 +1,17 @@
+{{- if .Values.mtls.enabled -}}
+{{- $APPNAME := .Values.appname  -}}
+---
+apiVersion: configuration.konghq.com/v1
+config:
+  access:
+    - 'local a=kong.client.get_consumer()local b=""local c=a.username;local d={ {{ template "allcns" .  }} } function inTable(c)for x,y in pairs(d)do if y==c then return true end end;return false end;if inTable(c)then kong.log("passed-->",c)else  return kong.response.exit(403, "InCorrectAuth")end'
+  body_filter: []
+  certificate: []
+  header_filter: []
+  log: []
+  rewrite: []
+kind: KongPlugin
+metadata:
+  name: "mtls-acl-{{ $APPNAME }}" ## need to add application name
+plugin: "post-function"
+{{- end }}
