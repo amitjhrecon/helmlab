@@ -82,5 +82,5 @@ tolerations: []
 affinity: {}
 
 favorite:
-  drink: coffee
+  drink: tea
   food: pizza
