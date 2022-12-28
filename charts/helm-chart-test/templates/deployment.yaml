@@ -1,5 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
+data:
+  myvalue: "Hello World"
+  drink: {{ .Values.favorite.drink }}
+  food: {{ .Values.favorite.food }}
 metadata:
   name: {{ include "helm-chart-test.fullname" . }}
   labels:
