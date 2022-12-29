@@ -1,0 +1,9 @@
+# Default values for nte.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+config:
+  aString: "some text"
+  aNumber: 1234
+  anotherString: 
+  anotherNumber:
