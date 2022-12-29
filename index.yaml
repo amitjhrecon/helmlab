@@ -51,6 +51,19 @@ entries:
     urls:
     - https://github.com/amitjhrecon/helmlab/releases/download/helm-chart-test-2.1.1/helm-chart-test-2.1.1.tgz
     version: 2.1.1
+  helmv3:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2022-12-29T09:04:33.620334707Z"
+    description: A Helm chart for Kubernetes
+    digest: 05c313a78fa09333c1f8fd0210ba949bd3c908a8a10a5efc40a171bc300ba3d0
+    maintainers:
+    - name: nuance-coretech
+    name: helmv3
+    type: application
+    urls:
+    - https://github.com/amitjhrecon/helmlab/releases/download/helmv3-0.0.1/helmv3-0.0.1.tgz
+    version: 0.0.1
   nginx:
   - annotations:
       category: Infrastructure
