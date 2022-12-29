@@ -5,5 +5,5 @@
 config:
   aString: "some text"
   aNumber: 1234
-  anotherString: 
-  anotherNumber:
+  anotherString: null
+  anotherNumber: null
