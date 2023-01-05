@@ -1,0 +1,4 @@
+config:
+  aString: "some text"
+  aNumber: 12345
+  anotherString: "some other text"
