@@ -128,6 +128,18 @@ entries:
     version: 0.0.1
   - apiVersion: v2
     appVersion: 0.0.1
+    created: "2023-05-24T08:05:03.027617168Z"
+    description: A Helm chart for Kubernetes
+    digest: 91a7f5fc2d32a39f78f94198474d33534cd5cb017b7f3af5ba8437eef705139d
+    maintainers:
+    - name: nuance-coretech
+    name: helmv3
+    type: application
+    urls:
+    - https://github.com/amitjhrecon/helmlab/releases/download/helmv3-0.0.2.2/helmv3-0.0.2.2.tgz
+    version: 0.0.2.2
+  - apiVersion: v2
+    appVersion: 0.0.1
     created: "2023-01-23T09:49:52.575740374Z"
     description: A Helm chart for Kubernetes
     digest: b090bcf090d34c8ab927ccaa3a13d1d380e47633cffc418de65ca587827a9ea5
@@ -138,6 +150,17 @@ entries:
     urls:
     - https://github.com/amitjhrecon/helmlab/releases/download/helmv3-0.0.2.1/helmv3-0.0.2.1.tgz
     version: 0.0.2.1
+  mychart:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-05-24T08:05:03.18752714Z"
+    description: A Helm chart for Kubernetes
+    digest: 270a822cc8a26ac12fd12098353ffbe9a7de0ecaece8d63f02fccd56ce0ca211
+    name: mychart
+    type: application
+    urls:
+    - https://github.com/amitjhrecon/helmlab/releases/download/mychart-0.1.0/mychart-0.1.0.tgz
+    version: 0.1.0
   nginx:
   - annotations:
       category: Infrastructure
