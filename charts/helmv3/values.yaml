@@ -2,6 +2,8 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+testkey: ${environmentVariable.ldbid}-keystore-alias
+testval: "someconstantvalue"
 config:
   aString: "some text"
   aNumber: 1234
