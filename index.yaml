@@ -104,16 +104,16 @@ entries:
   helmv3:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2023-06-06T04:10:06.607412764Z"
+    created: "2023-06-06T04:10:26.537820871Z"
     description: A Helm chart for Kubernetes
-    digest: 29a89da319ecf68820717f987c925c07621436f884b97c588e35f3c11069863f
+    digest: 0a687603727dc01213e9e8ac09fae9350da825886912bc3c8594e983f80a07a9
     maintainers:
     - name: nuance-coretech
     name: helmv3
     type: application
     urls:
-    - https://github.com/amitjhrecon/helmlab/releases/download/helmv3-0.0.9/helmv3-0.0.9.tgz
-    version: 0.0.9
+    - https://github.com/amitjhrecon/helmlab/releases/download/helmv3-0.0.10/helmv3-0.0.10.tgz
+    version: 0.0.10
   - apiVersion: v2
     appVersion: 0.0.1
     created: "2023-05-24T09:06:57.2207075Z"
