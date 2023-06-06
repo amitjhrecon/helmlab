@@ -3,7 +3,7 @@
 # Declare variables to be passed into your templates.
 
 testkey: [${environmentVariable.ldbid}]
-testval: "someconstantvalue"
+testval: "[${environmentVariable.ldbid}]"
 config:
   aString: "some text"
   aNumber: 1234
