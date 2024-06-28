@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: mychart-configmap
-data:
-  myvalue: "Hello World"
-  myvalu2: {{ .Values.testval1 }}
-  myvalue3: {{ .Values.testval2 }}
