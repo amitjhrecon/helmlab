@@ -3,13 +3,13 @@ kind: Service
 metadata:
   name: {{ include "mychart.fullname" . }}
   labels:
-    {{ .Values.somevalue }}
+    {{- include "mychart.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
       targetPort: http
       protocol: TCP
-      name: http
+      name: {{ .Values.somevalue }}
   selector:
     {{- include "mychart.selectorLabels" . | nindent 4 }}
