@@ -3,7 +3,7 @@
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
-somevalue: "val1\"test"
+somevalue: 'val1\"test'
 
 image:
   repository: nginx
