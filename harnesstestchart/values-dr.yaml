@@ -1,0 +1,20 @@
+im:
+  prefixOverride: false
+serviceaccount:  
+  clientid: 2e629a6a-b6ab-4a59-a2c7-039b3a69a65f
+  namespace: invoice-manager    
+allowserviceaccountaccessto:  
+  - ns: deprod
+  - ns: teprod
+  - ns: deoprod
+  - ns: imwebprod
+  - ns: imapiprod
+tlssecret:  
+  ns: invoice-manager
+  uassignid: cf81400a-4ccb-430b-ab96-3d098f20726f
+  keyvaultname: fis-im-we-key-vault-dr
+  keyvaulttenantId: ca97f7f3-d54f-4319-8dde-edf2b862856c
+  certname: eec-fis-com
+  allowtlssecretaccessto:
+    - ns: nginx-ext-ingress
+    - ns: nginx-int-ingress

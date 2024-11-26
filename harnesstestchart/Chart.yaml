@@ -1,0 +1,6 @@
+apiVersion: v2
+name: invoicemanager
+appVersion: "1.0"
+description: A Helm chart for Service account or workload identities 
+version: 0.1.1
+type: application

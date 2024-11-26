@@ -1,0 +1,26 @@
+{{- $nameprefix := include "im.nameprefix" . }}
+{{- $serviceaccountns := .Values.serviceaccount.namespace }}
+{{- $namespaces := .Values.allowserviceaccountaccessto }}
+{{- range $namespaces }}
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ .ns }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: {{ $nameprefix }}-rolebinding
+  namespace: {{ .ns }}
+roleRef: # points to my ClusterRole
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: {{ $nameprefix }}-clusterrole
+subjects: # points to my ServiceAccount
+- kind: ServiceAccount
+  name: {{ $nameprefix }}-serviceaccount
+  namespace: {{ $serviceaccountns }}
+{{- end }} 
+---
+
